@@ -8,7 +8,7 @@ var express           =require("express"),
 	LocalStrategy     =require("passport-local"),
 	methodOverride    =require("method-override");
 
-var port=8000;
+var port= process.env.PORT || 8000;
 
 // require models from shemas
 var Campground    =require("./models/campground"),
