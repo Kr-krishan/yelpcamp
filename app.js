@@ -20,10 +20,10 @@ var campgroundRoutes=require("./routes/campground");
 var commentRoutes=require("./routes/comment");
 var indexRoutes=require("./routes/index");
 
-// console.log(process.env.DATABASEURL);
 // CONFIG
-// mongodb://localhost/yelp_camp_13
-mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopology: true});
+// adding env variable for dburl (diff for node and production)
+var url=process.env.DATABASEURL || "mongodb://localhost/yelp_camp_13" ;
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 // mongodb+srv://coltWebD:coltWebD@cluster0.7m5um.mongodb.net/<dbname>?retryWrites=true&w=majority
 // mongoose.connect("mongodb+srv://coltWebD:coltWebD@cluster0.7m5um.mongodb.net/<dbname>?retryWrites=true&w=majority",{
 // 	useNewUrlParser: true,
@@ -33,8 +33,6 @@ mongoose.connect(process.env.DATABASEURL, {useNewUrlParser: true, useUnifiedTopo
 // }).catch(err =>{
 // 	console.log("error connecting to db",err.message);
 // })
-
-// mongoose.connect("mongodb+srv://coltWebD:coltWebD@cluster0.7m5um.mongodb.net/<dbname>?retryWrites=true&w=majority");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
